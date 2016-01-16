@@ -3,7 +3,7 @@ public class Board {
     int [][] board;
     String invalidPlace = "";
     public int empty = -1;
-    private Judge moderator;
+    private Judge judge;
     public Board(){
         board = new int[3][3];
         for(int columns = 0 ; columns < board[0].length;columns++ ){
@@ -11,7 +11,7 @@ public class Board {
                 board[columns][rows] = empty;
             }
         }
-        moderator = new Judge();
+        judge = new Judge();
         //System.out.println("Dimension 1 " + board[0].length);
         display();
     }
@@ -99,7 +99,7 @@ public class Board {
                 break;
             }
         }
-        moderator.evaluate(this);
+        judge.evaluate(this);
         display();
     }
 
@@ -138,10 +138,13 @@ public class Board {
         }*/ //conventional way of doing
         System.out.println("Board");
         System.out.println();
-        for(int[] x: board) //iterative way of doing it
+        //iterative way of doing it
+        for(int[] x: board) 
         {
-            for(int val: x) {
-                switch (val){
+            for(int val: x)
+            {
+                switch (val)
+                {
                     case -1: {
                         System.out.print("-");
                         break;
@@ -160,6 +163,7 @@ public class Board {
             }
             System.out.println();
         }
+
         System.out.println();
     }
 }
